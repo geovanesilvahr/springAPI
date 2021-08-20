@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name="tb_especialidade")
+@Table(name="tb_especialidades")
 public class Especialidade {
 	
 	@Column(name = "esp_codigo")
