@@ -1,7 +1,5 @@
 package com.springAPI.model;
 
-import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,20 +10,24 @@ import javax.persistence.Table;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name="tb_especialidades")
+@Table(name = "tb_especialidades")
 public class Especialidade {
-	
-	@Column(name = "esp_codigo")
 	@Id
+	@Column(name = "esp_codigo")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
-	@Column(name = "esp_nome")
+	@Column(name = "esp_descricao")
 	@NotNull
-	private Long nome;
-	
+	private String descricao;
+	@Column(name = "esp_nomereduzido")
+	@NotNull
+	private String nomeReduzido;
 	@Override
 	public int hashCode() {
-		return Objects.hash(codigo);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -36,20 +38,33 @@ public class Especialidade {
 		if (getClass() != obj.getClass())
 			return false;
 		Especialidade other = (Especialidade) obj;
-		return Objects.equals(codigo, other.codigo);
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
 	}
-	
 	public Long getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-	public Long getNome() {
-		return nome;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setNome(Long nome) {
-		this.nome = nome;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
-
+	public String getNomeReduzido() {
+		return nomeReduzido;
+	}
+	public void setNomeReduzido(String nomeReduzido) {
+		this.nomeReduzido = nomeReduzido;
+	}
+	
+	
+	
+	
 }
