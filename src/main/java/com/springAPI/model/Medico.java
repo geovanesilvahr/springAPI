@@ -28,7 +28,7 @@ public class Medico {
 	
 	@NotNull
 	@Column(name = "med_dtnascimento")
-	private String dtNascimento;
+	private int dtNascimento;
 
 	@Override
 	public int hashCode() {
@@ -71,11 +71,11 @@ public class Medico {
 		this.sobrenome = sobrenome;
 	}
 
-	public String getDtNascimento() {
+	public int getDtNascimento() {
 		return dtNascimento;
 	}
 
-	public void setDtNascimento(String dtNascimento) {
+	public void setDtNascimento(int dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}
 	
