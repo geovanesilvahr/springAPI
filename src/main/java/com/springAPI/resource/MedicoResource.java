@@ -2,12 +2,14 @@ package com.springAPI.resource;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,14 +31,6 @@ public class MedicoResource {
 		return medicoRepository.findAll();
 	}
 	
-	/*Retorna 404 - NotFound caso não tenha nenhum dado na tabela. Caso haja, ele retorna 200 - Ok.
-	private ResponseEntity<?> listarTodos(){
-		List<Medico> medico = medicoRepository.findAll();
-		return !medico.isEmpty() ? ResponseEntity.ok(medico) : ResponseEntity.notFound().build();
-		
-	}
-	*/
-	
 	@PostMapping
 	private ResponseEntity<Medico> criar(@RequestBody Medico medico, HttpServletResponse response){
 		Medico medicoSalvo = medicoRepository.save(medico);
@@ -50,6 +44,11 @@ public class MedicoResource {
 		return ResponseEntity.created(uri).body(medicoSalvo);
 		
 	}
-	
+	//Retorna a lista do codigo solicitado (Caso não haja, retorna NotFound - 404)
+	@GetMapping("/{codigo}")
+	private ResponseEntity<Medico> listarTodos(@PathVariable Long codigo){
+		Optional<Medico> medico = this.medicoRepository.findById(codigo);
+		return medico.isPresent() ? ResponseEntity.ok(medico.get())	: ResponseEntity.notFound().build();	
+	}
 
 }

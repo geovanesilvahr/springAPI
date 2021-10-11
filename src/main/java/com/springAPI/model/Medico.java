@@ -16,7 +16,7 @@ public class Medico {
 	@Id
 	@Column(name = "med_codigo")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String codigo;
+	private Long codigo;
 	
 	@NotNull
 	@Column(name = "med_nome")
@@ -47,11 +47,11 @@ public class Medico {
 		return Objects.equals(codigo, other.codigo);
 	}
 
-	public String getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 
