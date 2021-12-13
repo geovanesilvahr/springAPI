@@ -1,5 +1,4 @@
 package com.springAPI.model;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,16 +11,20 @@ import com.sun.istack.NotNull;
 @Entity
 @Table(name = "tb_especialidades")
 public class Especialidade {
+	
 	@Id
 	@Column(name = "esp_codigo")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
+	
 	@Column(name = "esp_descricao")
 	@NotNull
 	private String descricao;
+	
 	@Column(name = "esp_nomereduzido")
 	@NotNull
 	private String nomeReduzido;
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -29,6 +32,7 @@ public class Especialidade {
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
