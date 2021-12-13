@@ -1,10 +1,10 @@
 package com.springAPI.repository;
 
-import java.math.BigDecimal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Controller;
+import com.springAPI.model.CalcularImpostos;
 
 @Controller
-public interface CalcularImpostos extends JpaRepository<CalcularImpostos, BigDecimal>{
+public interface CalcularImpostosRepository extends JpaRepository<CalcularImpostos, Double>{
 
 }
