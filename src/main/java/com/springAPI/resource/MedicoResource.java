@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,7 @@ public class MedicoResource {
 	}
 	
 	@PostMapping
-	private ResponseEntity<Medico> criar(@RequestBody Medico medico, HttpServletResponse response){
+	private ResponseEntity<Medico> criar(@Valid @RequestBody Medico medico, HttpServletResponse response){
 		Medico medicoSalvo = medicoRepository.save(medico);
 		
 		//Retorna o Location de onde foi salvo no Header.

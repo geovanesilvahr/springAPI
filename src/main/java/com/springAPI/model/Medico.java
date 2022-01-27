@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -21,6 +22,7 @@ public class Medico {
 	
 	@NotNull
 	@Column(name = "med_nome")
+	@Size(min = 2, max = 20)
 	private String nome;
 	
 	@NotNull
