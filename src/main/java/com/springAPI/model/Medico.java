@@ -2,6 +2,7 @@ package com.springAPI.model;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,6 +33,10 @@ public class Medico {
 	@NotNull
 	@Column(name = "med_dtnascimento")
 	private int dtNascimento;
+	
+	@Embedded
+	@Column(name = "med_endereco")
+	private Endereco endereco;
 
 	@Override
 	public int hashCode() {
@@ -80,6 +85,14 @@ public class Medico {
 
 	public void setDtNascimento(int dtNascimento) {
 		this.dtNascimento = dtNascimento;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 	
 	

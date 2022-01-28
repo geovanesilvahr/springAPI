@@ -5,5 +5,6 @@ CREATE TABLE tb_medicos(
     med_nome VARCHAR(30),
    	med_sobrenome VARCHAR(15),
    	med_dtnascimento INTEGER,
+   	med_endereco VARCHAR,
     primary key(med_codigo)
 );
