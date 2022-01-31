@@ -35,8 +35,11 @@ public class Medico {
 	private int dtNascimento;
 	
 	@Embedded
-	@Column(name = "med_endereco")
 	private Endereco endereco;
+	
+	@NotNull
+	private boolean ativo;
+
 
 	@Override
 	public int hashCode() {
@@ -95,5 +98,12 @@ public class Medico {
 		this.endereco = endereco;
 	}
 	
+	public boolean isAtivo() {
+		return ativo;
+	}
+	
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
 	
 }
