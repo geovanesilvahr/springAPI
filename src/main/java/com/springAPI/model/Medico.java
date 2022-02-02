@@ -38,6 +38,7 @@ public class Medico {
 	private Endereco endereco;
 	
 	@NotNull
+	@Column(name = "ativo")
 	private boolean ativo;
 
 
